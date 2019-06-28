@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  >
+
+  <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0084ff"
+    >
+  <LinearLayout
+    android:id="@+id/imagewrapper"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#0084ff"
+    android:layout_gravity="center"
+    >
+  <ImageView
+    android:id ="@+id/intrologo"
+    android:src="@drawable/Intro"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:scaleType="fitXY"
+    android:padding="0dp"
+    
+  /> 
+    </LinearLayout>
+    
+<TextView
+        android:id="@+id/appName"
+        android:text ="MyWorkoutPal"
+        android:textColor= "@android:color/white"
+      android:layout_width ="wrap_content"
+      android:layout_height ="wrap_content"
+        android:layout_gravity="center"
+      android:textSize="40dp"
+          />
+  
+ <Button
+   android:id ="@+id/signup"
+   android:text="              Sign Up              "
+   android:textColor="#0084ff"
+  android:layout_height="wrap_content"
+   android:layout_width="wrap_content"
+   android:background="@drawable/signUpButton"
+   android:layout_gravity="center"
+   android:translationY="60dp"
+   android:layout_below ="@id/intrologo"
+  /> 
+    
+<Button
+   android:id ="@+id/login"
+   android:text="             Log In              "
+  android:layout_height="wrap_content"
+   android:textColor="@android:color/white"
+   android:layout_width="wrap_content"
+   android:background="#0084ff"
+   android:layout_gravity="center"
+   android:translationY="60dp"
+  />
+  </LinearLayout>
+</LinearLayout>

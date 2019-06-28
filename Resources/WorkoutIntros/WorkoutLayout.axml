@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <TextView
+      android:text=""
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/Exercise1"/>
+  
+  
+  <TextView
+      android:text="Set 1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/set1"/>
+  
+  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reps1" 
+        android:layout_weight="1"/>
+    <TextView
+        android:text=" reps of "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/weight1" 
+          android:layout_weight="1"/>
+    <TextView
+        android:text=" kg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <Button
+    android:id ="@+id/edit1"
+    android:text="Edit Weight"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+  />
+  </LinearLayout>
+  
+<TextView
+      android:text="Set 2"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/set2"/>
+  
+  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reps2" 
+        android:layout_weight="1"/>
+    <TextView
+        android:text=" reps of "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/weight2" 
+          android:layout_weight="1"/>
+    <TextView
+        android:text=" kg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <Button
+    android:id ="@+id/edit2"
+    android:text="Edit Weight"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+  />
+  </LinearLayout>
+  
+<TextView
+      android:text="Set 3"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/set3"/>
+  
+  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reps3" 
+        android:layout_weight="1"/>
+    <TextView
+        android:text=" reps of "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/weight3" 
+          android:layout_weight="1"/>
+    <TextView
+        android:text=" kg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <Button
+    android:id ="@+id/edit3"
+    android:text="Edit Weight"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+  />
+  </LinearLayout>
+  
+<TextView
+      android:text="Set 4"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/set4"/>
+  
+  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reps4" 
+        android:layout_weight="1"/>
+    <TextView
+        android:text=" reps of "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/weight4" 
+          android:layout_weight="1"/>
+    <TextView
+        android:text=" kg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <Button
+    android:id ="@+id/edit4"
+    android:text="Edit Weight"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+  />
+  </LinearLayout>
+  
+<TextView
+      android:text="Set 5"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/set5"/>
+  
+  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reps5" 
+        android:layout_weight="1"/>
+    <TextView
+        android:text=" reps of "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/weight5" 
+          android:layout_weight="1"/>
+    <TextView
+        android:text=" kg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <Button
+    android:id ="@+id/edit5"
+    android:text="Edit Weight"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+  />
+  </LinearLayout>
+  
+<Button
+    android:id ="@+id/done"
+    android:text="Done"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+  />
+
+</LinearLayout>

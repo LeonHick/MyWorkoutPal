@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_awesome_toolbar"
+    android:layout_height="60dp"
+    android:layout_width="match_parent"
+    android:background="#0084ff">
+
+    <ImageButton
+      android:id ="@+id/back"
+      android:src ="@drawable/PowerBuilderLauncher"
+      android:layout_height="50dp"
+      android:layout_width="50dp"
+      android:scaleType="fitXY"
+      android:padding="6dp"
+      android:background ="#0084ff"/>
+
+    <TextView
+        android:id="@+id/Exercise1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Workout"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_gravity ="center"/>
+
+  </Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical"
+        android:id="@+id/PreSetLayout">
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+        android:text="I did "/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+            android:inputType="number"
+        android:id="@+id/reps4"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:text=""
+        android:id="@+id/weight4"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical"
+        android:id="@+id/PostSetLayout">
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+        android:text="I did "/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+            android:inputType="number"
+        android:id="@+id/reps5"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:text=""
+        android:id="@+id/weight5"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+    android:layout_gravity="center_horizontal"
+    android:text="done"
+    android:id="@+id/done"/>
+
+</LinearLayout>

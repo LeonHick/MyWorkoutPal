@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <Toolbar
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:background="#FFFFFF"
+        android:keepScreenOn="false">
+
+        <TextView
+            android:id="@+id/txtView_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Your Workout"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity ="center"/>
+
+    </Toolbar>
+
+  <TextView
+      android:text="Sets"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/txtView_Sets" />
+  <TextView
+      android:text="Reps"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/txtView_Reps" />
+  <TextView
+      android:text="Weight"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/txtView_Email" />
+</LinearLayout>

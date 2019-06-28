@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Toolbar
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:background="#0084ff"
+        android:keepScreenOn="false">
+
+        <ImageButton
+            android:id ="@+id/back"
+            android:src ="@drawable/PowerBuilderLauncher"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:scaleType="fitXY"
+            android:padding="6dp"
+            android:background ="#0084ff"/>
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Workout"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_gravity ="center"/>
+
+    </Toolbar>
+
+    <Button
+        android:id="Exercise1Intro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

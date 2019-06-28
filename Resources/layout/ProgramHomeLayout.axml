@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Toolbar
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:background="#0084ff"
+        android:keepScreenOn="false">
+
+        <ImageButton
+            android:id ="@+id/back"
+            android:src ="@drawable/back"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:scaleType="fitXY"
+            android:padding="6dp"
+            android:background ="#0084ff"/>
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Home"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_gravity ="center"/>
+
+    </Toolbar>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+            <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+  
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:id="@+id/LinearTest"
+        android:orientation="vertical">
+        </LinearLayout>
+
+              </ScrollView>
+
+
+            
+   <Toolbar
+        android:id="@+id/my_awesome_taskbar"
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:background="#FFFFFF"
+        android:keepScreenOn="false"
+        android:layout_alignParentBottom = "true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                            <ImageButton
+                             android:id="@+id/taskbar1"
+                            android:src ="@drawable/dumbbell_icon"
+                            android:layout_height="40dp"
+                            android:layout_width="40dp"
+                            android:layout_gravity="center"
+                            android:padding="6dp"
+                            android:scaleType="fitCenter"
+                            android:background="#FFFFFF"
+                            android:layout_weight="1"/>
+
+
+                            <ImageButton
+                            android:id="@+id/taskbar2"
+                            android:src ="@drawable/bar_chart_icon"
+                            android:layout_height="40dp"
+                            android:layout_width="40dp"
+                            android:layout_gravity="center"
+                            android:padding="6dp"
+                            android:scaleType="fitCenter"
+                            android:background="#FFFFFF"
+                            android:layout_weight="1"/>
+
+                            <ImageButton
+                                    android:id="@+id/taskbar3"
+                            android:src ="@drawable/edit_icon"
+                            android:layout_height="40dp"
+                            android:layout_width="40dp"
+                            android:layout_gravity="center"
+                            android:padding="6dp"
+                            android:scaleType="fitCenter"
+                            android:background="#FFFFFF"
+                            android:layout_weight="1"
+                        />
+
+                            <ImageButton
+                            android:id="@+id/taskbar4"
+                            android:src ="@drawable/account"
+                            android:layout_height="40dp"
+                            android:layout_width="40dp"
+                            android:layout_gravity="center"
+                            android:padding="6dp"
+                            android:scaleType="fitCenter"
+                            android:background="#FFFFFF"
+                            android:layout_weight="1"
+                    
+                            />
+
+            </LinearLayout>
+    </Toolbar>
+            
+            <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+                android:layout_above="@id/my_awesome_taskbar"
+            android:background="@drawable/toolbar_upshadow_grey"
+            android:id="@+id/upshadow"/>
+
+
+    </RelativeLayout>
+    
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow"/>
+
+</FrameLayout>
+</LinearLayout>

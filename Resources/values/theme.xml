@@ -1,0 +1,26 @@
+﻿<resources>
+
+  <style name="CustomActionBarTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+    <item name="android:actionBarStyle">@style/MyActionBar</item>
+  </style>
+
+  <style name="MyActionBar"
+         parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <item name="android:height">60dp</item>
+    <item name="android:displayOptions"></item>
+    <item name="android:background">#0084ff</item>
+  </style>
+
+  <style name="LogInActionBarTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+    <item name="android:actionBarStyle">@style/LogInActionBar</item>
+  </style>
+
+  <style name="LogInActionBar"
+         parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <item name="android:height">60dp</item>
+    <item name="android:displayOptions"></item>
+    <item name="android:background">#0084ff</item>
+    <item name="android:text">Log In</item>
+  </style>
+
+</resources>
