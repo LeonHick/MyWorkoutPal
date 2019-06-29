@@ -1,0 +1,287 @@
+using Android.App;
+using Android.OS;
+using Android.Widget;
+using MyWorkoutPal.Resources.Helper;
+using MyWorkoutPal.Model;
+using System.Collections.Generic;
+using Android.Content;
+using System;
+
+/* PLAN (BASIC)
+ * 2) SET WORKOUT FOR EACH DAY
+ * 3) CHOOSE WHAT WORKOUT IM DOING TODAY
+ * 4) PUT IN WEIGHTS LIFTED
+ * 5) IT TELLS YOU NEXT WEEK IF YOU NEED TO PUT WEIGHT UP
+ * 
+ * PLAN (COMMERCIAL)
+ * */
+
+namespace MyWorkoutPal
+{
+    [Activity(Label = "PushEditor", Theme = "@style/LogInActionBarTheme")]
+    public class PushEditor : Activity
+    {
+        ListView lstViewData;
+        List<Exercise> listSource = new List<Exercise>();
+        Database db;
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            try
+            {
+
+                base.OnCreate(savedInstanceState);
+                // Set our view from the "main" layout resource  
+                SetContentView(Resource.Layout.Main);
+
+                ActionBar.Hide();
+
+                //Create Database  
+                db = new Database();
+                db.createDatabase();
+
+                lstViewData = FindViewById<ListView>(Resource.Id.listView);
+                var edtName = FindViewById<EditText>(Resource.Id.edtName);
+                var edtSets = FindViewById<EditText>(Resource.Id.edtSets);
+                var edtReps = FindViewById<EditText>(Resource.Id.edtReps);
+                var edtEmail = FindViewById<EditText>(Resource.Id.edtEmail);
+                var btnAdd = FindViewById<Button>(Resource.Id.btnAdd);
+                var btnEdit = FindViewById<Button>(Resource.Id.btnEdit);
+                var btnRemove = FindViewById<Button>(Resource.Id.btnRemove);
+                //Load Data  
+                LoadData();
+
+                var workout = this.Intent.Extras.GetString("workout");
+
+                //Event  
+                btnAdd.Click += delegate
+                {
+                    Exercise exercise = new Exercise()
+                    {
+                        Workout = workout,
+                        Name = edtName.Text,
+                        Sets = edtSets.Text,
+                        Reps = edtReps.Text,
+                        Weight = edtEmail.Text
+                    };
+
+                    if (workout == "Push")
+                    {
+                        db.insertIntoTable(exercise);
+                    }
+
+                    else if (workout == "Push2")
+                    {
+                        db.insertIntoTablePush2(exercise);
+                    }
+
+                    else if (workout == "Pull")
+                    {
+                        db.insertIntoTablePull(exercise);
+                    }
+
+                    else if (workout == "Pull2")
+                    {
+                        db.insertIntoTablePull2(exercise);
+                    }
+
+                    else if (workout == "Legs")
+                    {
+                        db.insertIntoTableLegs(exercise);
+                    }
+
+                    else
+                    {
+                        Toast error = Toast.MakeText(this, "There's a problem with the workout bundle", ToastLength.Short);
+                        error.Show();
+                    }
+
+                    LoadData();
+                };
+                btnEdit.Click += delegate
+                {
+                    Exercise exercise = new Exercise()
+                    {
+                        Id = int.Parse(edtName.Tag.ToString()),
+                        Workout = workout,
+                        Name = edtName.Text,
+                        Sets = edtSets.Text,
+                        Reps = edtReps.Text,
+                        Weight = edtEmail.Text
+                    };
+
+                    if (workout == "Push")
+                    {
+                        db.updateTable(exercise);
+                    }
+
+                    else if (workout == "Push2")
+                    {
+                        db.updateTablePush2(exercise);
+                    }
+
+                    else if (workout == "Pull")
+                    {
+                        db.updateTablePull(exercise);
+                    }
+
+                    else if (workout == "Pull2")
+                    {
+                        db.updateTablePull2(exercise);
+                    }
+
+                    else if (workout == "Legs")
+                    {
+                        db.updateTableLegs(exercise);
+                    }
+
+                    else
+                    {
+                        Toast error = Toast.MakeText(this, "There's a problem with the workout bundle", ToastLength.Short);
+                        error.Show();
+                    }
+
+                    LoadData();
+                };
+                btnRemove.Click += delegate
+                {
+                    Exercise exercise = new Exercise()
+                    {
+                        Id = int.Parse(edtName.Tag.ToString()),
+                        Workout = "Push",
+                        Name = edtName.Text,
+                        Sets = edtSets.Text,
+                        Reps = edtReps.Text,
+                        Weight = edtEmail.Text
+                    };
+
+                    if (workout == "Push")
+                    {
+                        db.removeTable(exercise);
+                    }
+
+                    else if (workout == "Push2")
+                    {
+                        db.removeTablePush2(exercise);
+                    }
+
+                    else if (workout == "Pull")
+                    {
+                        db.removeTablePull(exercise);
+                    }
+
+                    else if (workout == "Pull2")
+                    {
+                        db.removeTablePull2(exercise);
+                    }
+
+                    else if (workout == "Legs")
+                    {
+                        db.removeTableLegs(exercise);
+                    }
+
+                    else
+                    {
+                        Toast error = Toast.MakeText(this, "There's a problem with the workout bundle", ToastLength.Short);
+                        error.Show();
+                    }
+
+                    LoadData();
+                };
+                lstViewData.ItemClick += (s, e) =>
+                {
+                /*
+                //Set Backround for selected item  
+                for (int i = 0; i < lstViewData.Count; i++)
+                {
+                    if (e.Position == i)
+                        lstViewData.GetChildAt(i).SetBackgroundColor(Android.Graphics.Color.Black);
+                    else
+                        lstViewData.GetChildAt(i).SetBackgroundColor(Android.Graphics.Color.Transparent);
+                }*/
+                //Binding Data  
+                var txtName = e.View.FindViewById<TextView>(Resource.Id.txtView_Name);
+                    var txtSets = e.View.FindViewById<TextView>(Resource.Id.txtView_Sets);
+                    var txtReps = e.View.FindViewById<TextView>(Resource.Id.txtView_Reps);
+                    var txtEmail = e.View.FindViewById<TextView>(Resource.Id.txtView_Email);
+                    edtEmail.Text = txtName.Text;
+                    edtName.Tag = e.Id;
+                    edtSets.Text = "Sets: " + txtSets.Text;
+                    edtReps.Text = "Reps: " + txtReps.Text;
+                    edtEmail.Text = "Weight: " + txtEmail.Text;
+                };
+
+                var done = FindViewById<Button>(Resource.Id.done);
+
+                done.Click += async delegate
+                {
+                    var intent = new Intent(this, typeof(ProgramHome));
+
+                    this.StartActivity(intent);
+
+                };
+            }
+            catch (Exception e)
+            {
+                System.Exception myException = e;
+                Toast error = Toast.MakeText(this, e.Message, ToastLength.Short);
+                error.Show();
+
+            }
+
+
+        }
+        private void LoadData()
+        {
+            try
+            {
+
+                var workout = this.Intent.Extras.GetString("workout");
+
+                if (workout == "Push")
+                {
+                    listSource = db.selectTable();
+                }
+
+                else if (workout == "Push2")
+                {
+                    listSource = db.selectTablePush2();
+                }
+
+                else if (workout == "Pull")
+                {
+                    listSource = db.selectTablePull();
+                }
+
+                else if (workout == "Pull2")
+                {
+                    listSource = db.selectTablePull2();
+                }
+
+                else if (workout == "Legs")
+                {
+                    listSource = db.selectTableLegs();
+                }
+
+                else
+                {
+                    Toast error = Toast.MakeText(this, "There's a problem with the workout bundle", ToastLength.Short);
+                    error.Show();
+                }
+
+
+                var adapter = new ListViewAdapter(this, listSource);
+
+                lstViewData.Adapter = adapter;
+            }
+            catch (Exception e)
+            {
+                System.Exception myException = e;
+                Toast error = Toast.MakeText(this, e.Message, ToastLength.Short);
+                error.Show();
+
+            }
+        }
+
+       
+    }
+}

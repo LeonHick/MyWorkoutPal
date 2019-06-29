@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+  <Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_awesome_toolbar"
+    android:layout_height="60dp"
+    android:layout_width="match_parent"
+    android:background="#0084ff">
+
+    <ImageButton
+      android:id ="@+id/back"
+      android:src ="@drawable/PowerBuilderLauncher"
+      android:layout_height="50dp"
+      android:layout_width="50dp"
+      android:scaleType="fitXY"
+      android:padding="6dp"
+      android:background ="#0084ff"/>
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Sign Up to PowerBuilder"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_gravity ="center"/>
+
+  </Toolbar>
+
+
+  <EditText
+    android:id="@+id/namer"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:hint="Username"
+    android:translationY="20dp"
+    android:layout_below ="@id/my_awesome_toolbar"
+    />
+  
+  <EditText
+    android:id="@+id/passworder"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:hint="Password"
+    android:layout_below ="@id/namer"
+    android:translationY="20dp"
+    android:paddingTop ="10dp"
+    />
+
+  <TextView
+    android:id ="@+id/sex"
+    android:text="Sex"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:translationY="20dp"
+    android:textSize="15dp"
+    android:paddingTop ="10dp"
+    android:paddingBottom="5dp"
+    android:layout_below ="@id/passworder"
+    />
+
+  <CheckBox 
+    android:id="@+id/male"
+    android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Male" 
+            android:translationY="20dp"
+    android:paddingTop ="10dp"
+    android:layout_below ="@id/sex"
+            />
+  
+  <CheckBox 
+    android:id="@+id/female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Female"
+            android:translationY="20dp"
+    android:layout_below ="@id/male"
+            />
+
+  <CheckBox 
+    android:id="@+id/none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prefer not to say (this will limit the application's function)" 
+            android:translationY="20dp"
+    android:layout_below ="@id/female"
+    />
+
+
+  <EditText
+    android:id="@+id/weighter"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:inputType ="number"
+    android:translationY="20dp"
+    android:paddingTop ="10dp"
+    android:hint ="Weight"
+    android:layout_below ="@id/none"
+    />
+  
+  <Button
+    android:id ="@+id/done"
+    android:text ="                            Sign Up                            "
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:background="@drawable/signInButton"
+    android:textColor="#FFFFFF"
+    android:layout_below ="@id/weighter"
+    android:layout_centerHorizontal ="true"
+    android:translationY="40dp"
+    />
+
+  <TextView
+    android:id ="@+id/or"
+    android:text ="OR"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:background ="#FFFFFF"
+    android:layout_centerHorizontal ="true"
+    android:layout_below ="@id/done"
+    android:translationY="70dp"
+    android:textSize="15dp"
+    android:padding ="20dp"
+    />
+
+  <Button
+    android:id ="@+id/login"
+    android:text ="                            Log In                            "
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:background ="@drawable/white_button"
+    android:layout_centerHorizontal ="true"
+    android:layout_below ="@id/or"
+    android:translationY="70dp"
+    android:padding ="20dp"
+    />
+
+</RelativeLayout>
+

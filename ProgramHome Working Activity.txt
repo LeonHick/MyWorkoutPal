@@ -1,0 +1,231 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using MyWorkoutPal.Resources.Helper;
+using MyWorkoutPal.Model;
+
+namespace MyWorkoutPal
+{
+    [Activity(Label = "MyWorkoutPal", MainLauncher = false, Theme = "@style/LogInActionBarTheme")]
+    public class ProgramHome : Activity
+    {
+        List<Workout> listSourceWorkout = new List<Workout>();
+        List<Info> listSourceInfo = new List<Info>();
+        List<Exercise> listSource = new List<Exercise>();
+        Database db;
+
+
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+            // Create your application here
+
+            SetContentView(Resource.Layout.ProgramHomeLayout);
+
+            ActionBar.Hide();
+
+            var title = FindViewById<TextView>(Resource.Id.toolbar_title);
+
+            var button1 = FindViewById<ImageButton>(Resource.Id.taskbar1);
+            var button2 = FindViewById<ImageButton>(Resource.Id.taskbar2);
+            var button3 = FindViewById<ImageButton>(Resource.Id.taskbar3);
+            var button4 = FindViewById<ImageButton>(Resource.Id.taskbar4);
+
+            button1.Click += async delegate
+            {
+                runWorkout();
+            };
+
+
+            reSize();
+
+
+            //Create Database  
+            db = new Database();
+            db.createDatabase();
+            db.createDatabaseInfo();
+
+            //Load Data  
+            LoadData();
+
+            string test = "";
+
+            title.Text = listSourceInfo[0].Workout;
+
+            // Testing new layout
+
+            Toast testToast = Toast.MakeText(this, listSourceInfo[0].Workout + " & " + listSourceInfo[0].Days, ToastLength.Short);
+            testToast.Show();
+
+            int n = listSourceInfo[0].Days;
+            Button[] myButtons = new Button[n]; // create an empty array;
+
+            var myLinearLayout = FindViewById<LinearLayout>(Resource.Id.LinearTest);
+
+            try
+            {
+
+
+
+                for (int i = 0; i < n; i++)
+                {
+
+                    // create a new button
+                    Button rowButton = new Button(this);
+
+                    // set some properties of rowTextView or something
+                    rowButton.Text = listSourceWorkout[i].Day + ": Edit";
+
+                    // set the id of the buttons
+
+                    rowButton.Id = i;
+
+                    // add the textview to the linearlayout
+                    myLinearLayout.AddView(rowButton);
+
+                    // save a reference to the button for later
+                    myButtons[i] = rowButton;
+
+
+
+                    rowButton.Click += async delegate
+                    {
+                        var ID = rowButton.Id;
+
+                        try
+                        {
+                            var bundle = new Bundle();
+                            bundle.PutString("Day", listSourceWorkout[ID].Day);
+                            var intent = new Intent(this, typeof(PushEditor));
+                            intent.PutExtras(bundle);
+
+                            this.StartActivity(intent);
+                        }
+                        catch (Exception e)
+                        {
+                            System.Exception myException = e;
+                            Toast error = Toast.MakeText(this, e.Message, ToastLength.Short);
+                            error.Show();
+
+                        }
+
+                    };
+                }
+
+                for (int i = 0; i < n; i++)
+                {
+                    
+
+                    // create a new button
+                    Button rowButton = new Button(this);
+
+                    // set some properties of rowTextView or something
+                    rowButton.Text = listSourceWorkout[i].Day + ": Workout!";
+
+                    // set the id of the buttons
+
+                    rowButton.Id = i;
+
+                    // add the textview to the linearlayout
+                    myLinearLayout.AddView(rowButton);
+
+                    // save a reference to the button for later
+                    myButtons[i] = rowButton;
+
+                    rowButton.Click += async delegate
+                    {
+                        var ID = rowButton.Id;
+
+                        try
+                        {
+                            var day = listSourceWorkout[ID].Day;
+
+                            listSource = db.selectTable().FindAll(Exercise => Exercise.Workout.Equals(day)); // This is just the data where the workout = whatever day was clicked
+
+                            var testeroo = listSource[0].Name;
+
+                            var bundle = new Bundle();
+                            bundle.PutString("Day", listSourceWorkout[ID].Day);
+
+                            var intent = new Intent(this, typeof(PushWorkout));
+                            intent.PutExtras(bundle);
+
+                            this.StartActivity(intent);
+
+                        }
+                        catch (Exception e)
+                        {
+                            System.Exception myException = e;
+                            Toast error = Toast.MakeText(this, "Create a Workout First", ToastLength.Short);
+                            error.Show();
+
+                        }
+
+
+                    };
+                }
+
+
+            }
+            catch
+            {
+                Toast error = Toast.MakeText(this, "long", ToastLength.Short);
+                error.Show();
+            }
+
+
+
+        }
+        private void LoadData()
+        {
+            listSourceInfo = db.selectTableInfo();
+            listSourceWorkout = db.selectTableWorkout();
+        }
+
+        private void runWorkout()
+        {
+            var button1 = FindViewById<ImageButton>(Resource.Id.taskbar1);
+            var button2 = FindViewById<ImageButton>(Resource.Id.taskbar2);
+            var button3 = FindViewById<ImageButton>(Resource.Id.taskbar3);
+            var button4 = FindViewById<ImageButton>(Resource.Id.taskbar4);
+
+            button1.SetAlpha(255);
+            button2.SetAlpha(55);
+            button3.SetAlpha(55);
+            button4.SetAlpha(55);
+
+            var scale = (float)1.5;
+
+            button1.ScaleX = scale;
+            button1.ScaleY = scale;
+        }
+
+        private void reSize()
+        {
+            var button1 = FindViewById<ImageButton>(Resource.Id.taskbar1);
+            var button2 = FindViewById<ImageButton>(Resource.Id.taskbar2);
+            var button3 = FindViewById<ImageButton>(Resource.Id.taskbar3);
+            var button4 = FindViewById<ImageButton>(Resource.Id.taskbar4);
+
+            button1.SetAlpha(55);
+            button2.SetAlpha(55);
+            button3.SetAlpha(255);
+            button4.SetAlpha(55);
+
+            var scale = (float)1.5;
+
+            button3.ScaleX = scale;
+            button3.ScaleY = scale;
+        }
+
+    }
+}
